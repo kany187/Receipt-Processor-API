@@ -13,6 +13,7 @@ Build a docker image by running this command ----> "docker build -t node-docker 
 # Endpoints available
 
 1- POST: http://localhost:8000/receipts/process
+
 2- GET: http://localhost:8000/receipts/{id}/points
 
 The post method will generate an ID that can be used in the GET method. Replace the id with the generated ID of the POST method.
