@@ -59,7 +59,7 @@ describe('Receipt Routes', () => {
                 .expect(404);
 
             expect(res.body).toEqual({
-                error: 'No receipt found for that id.'
+                error: 'No receipt found for that ID.'
             });
         })
     })
