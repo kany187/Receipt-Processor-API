@@ -12,7 +12,7 @@ export const getReceipt = (req: any, res: any) => {
         // Get the points for the receipt from the processor
         const points = processor.getPoints(id)
     
-        if (points === null) return res.status(404).json({ error: 'No receipt found for that id.' })
+        if (points === null) return res.status(404).json({ error: 'No receipt found for that ID.' })
         
         // Return the points for the receipt
         return res.status(200).json({ points })

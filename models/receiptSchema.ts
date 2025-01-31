@@ -37,15 +37,19 @@ export const ReceiptSchema = z.object({
 
 export type ValidReceipt = z.infer<typeof ReceiptSchema>
 
-// Helper function to validate request bpdy
+// Helper function to validate request body
 export function validateReceipt(schema: any, body: unknown) {
     const result = schema.safeParse(body);
     if (!result.success) {
         const errorMessages = result.error.errors.map((err: any) => {
-            const fieldPath = err.path.join('.');
-            return `${fieldPath}: ${err.message}`;
+            if (err.message.includes('Required')) {
+                const fieldPath = err.path.join('.');
+                const fieldName = fieldPath.split('.').pop(); 
+                return `${fieldName} is required`;
+            }
+            return err.message;
         }).join(', ');
-        throw new Error(`Invalid input: ${errorMessages}. Please verify input.`);
+       throw new Error(`The receipt is invalid: ${errorMessages}. Please verify input.`);
       }
       return result.data; 
 }
