@@ -18,6 +18,10 @@ Build a docker image by running this command ----> "docker build -t node-docker 
 
 The post method will generate an ID that can be used in the GET method. Replace the id with the generated ID of the POST method.
 
+# Executing test in running container
+
+Run this command -----> "docker exec api npm test"
+
 # Stop container
 
  Run this command -----> "docker stop api"
